@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1c1ce9",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111121",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>EduManage - Teacher Dashboard</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex min-h-screen">
+<!-- Sidebar -->
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col fixed h-full z-20">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">school</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-none">EduManage</h2>
+</div>
+<div class="px-4 flex-1">
+<div class="flex items-center gap-3 p-3 mb-6 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Portrait of a smiling female teacher" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkoXT5laWAG13zM8kPjhqc3R6msd8gMB76XGJ9ZT2-A-qk6TG4RAcs8Jc2t9ofc3HPZhhK69Lnp2ItGuwfgqK_iAEfiVb2qpeYSf42dmwlIqPXhrUJwkKvbflA3y3mfFVz9ubivrHlo3IlufjGslbRGz1zG_ibow1EOzeW30orBVK4tGwTeiW8Ew430uoT9vs4VASrZseNWVuIIZjrJc0dFa9joNfxTsd9p26OjLMA7UVp176JkILCfK_QqBaCLlIr7-fY2B_RVQM"/>
+</div>
+<div class="flex flex-col">
+<h1 class="text-sm font-semibold leading-none">Sarah Jenkins</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Senior Mathematics</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white font-medium" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">check_box</span>
+<span class="text-sm">Attendance</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-sm">Modules</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-sm">Report Cards</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+</div>
+<div class="p-4 mt-auto">
+<button class="flex w-full items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span>Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-64 min-h-screen">
+<!-- Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-8 flex items-center justify-between sticky top-0 z-10">
+<div class="flex-1 max-w-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-500" placeholder="Search students, classes, or materials..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="size-10 rounded-lg flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-800"></span>
+</button>
+<button class="size-10 rounded-lg flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Welcome Section -->
+<div>
+<h2 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Welcome back, Sarah!</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">Here's an overview of your academic activities today.</p>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-5">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">event_upcoming</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Today's Classes</p>
+<p class="text-3xl font-bold mt-1">6</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-5">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">groups</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Students</p>
+<p class="text-3xl font-bold mt-1">142</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-5">
+<div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">pending_actions</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Pending Tasks</p>
+<p class="text-3xl font-bold mt-1">8</p>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<section>
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+                        Quick Actions
+                    </h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<button class="group flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary/50 hover:bg-primary/5 transition-all">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">how_to_reg</span>
+</div>
+<span class="font-semibold text-slate-700 dark:text-slate-300">Mark Attendance</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary/50 hover:bg-primary/5 transition-all">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<span class="font-semibold text-slate-700 dark:text-slate-300">Upload Module</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary/50 hover:bg-primary/5 transition-all">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<span class="font-semibold text-slate-700 dark:text-slate-300">View Reports</span>
+</button>
+</div>
+</section>
+<!-- Schedule Section -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+                            Schedule at a Glance
+                        </h3>
+<a class="text-sm font-semibold text-primary hover:underline" href="#">Full Schedule</a>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs uppercase font-bold tracking-wider">
+<tr>
+<th class="px-6 py-4">Time</th>
+<th class="px-6 py-4">Class</th>
+<th class="px-6 py-4">Subject</th>
+<th class="px-6 py-4">Topic</th>
+<th class="px-6 py-4">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">09:00 - 10:00</td>
+<td class="px-6 py-4">Grade 10-A</td>
+<td class="px-6 py-4">Advanced Calculus</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm italic">Derivatives of Trig Functions</td>
+<td class="px-6 py-4">
+<button class="px-3 py-1.5 rounded bg-primary/10 text-primary text-xs font-bold hover:bg-primary hover:text-white transition-all">Launch Class</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">10:15 - 11:15</td>
+<td class="px-6 py-4">Grade 11-C</td>
+<td class="px-6 py-4">Linear Algebra</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm italic">Matrix Multiplication</td>
+<td class="px-6 py-4">
+<button class="px-3 py-1.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold cursor-not-allowed">Scheduled</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">13:00 - 14:00</td>
+<td class="px-6 py-4">Grade 9-B</td>
+<td class="px-6 py-4">Geometry</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm italic">Introduction to Circles</td>
+<td class="px-6 py-4">
+<button class="px-3 py-1.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold cursor-not-allowed">Scheduled</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

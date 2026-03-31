@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1c1ce9",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111121",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>EduPortal Student Management</title>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-6 py-3 lg:px-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">school</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">EduPortal Admin</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Students</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Classes</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<label class="hidden sm:flex min-w-40 max-w-64 relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full rounded-lg bg-slate-100 dark:bg-slate-800 border-none pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400" placeholder="Search students..."/>
+</label>
+<div class="flex items-center gap-2">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold">Admin User</p>
+<p class="text-[10px] text-slate-500">Super Admin</p>
+</div>
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20 overflow-hidden">
+<img class="size-full object-cover" data-alt="User profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHDfPTCqOY98Ye_YMS8u7WVqgAdhkcrX_-tPSLbWTo5DLQwW54tKSYSqPxcwxNWsduaGZMc-g9PkXz9IJm6wN9VGf1j1We7A9dWh2AclceLYhbfz1uA0gUAreGlkwarbKsA0BHFHrMSUDLICC5Llf5gEncS7Z61QH7vhzGBZgZp8V--VW3Q3h6yytebIxx45mz4nMtihSusj4FkYZaKHJetMYL1fNa8rxkiK_2jT9L5r_cA-qpNR6YuuKgGnLRfmifDXf-Fq2QaZk"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col lg:flex-row">
+<!-- Sidebar -->
+<aside class="w-full lg:w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-4 shrink-0">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-bold">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-sm font-medium">Academic Tracks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-sm font-medium">Schedule</span>
+</a>
+<div class="my-4 border-t border-slate-100 dark:border-slate-800"></div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Content Area -->
+<section class="flex-1 p-6 lg:p-10 overflow-y-auto">
+<div class="max-w-6xl mx-auto space-y-8">
+<!-- Page Header -->
+<div class="flex flex-wrap justify-between items-end gap-4">
+<div class="space-y-1">
+<h1 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Student Management</h1>
+<p class="text-slate-500 dark:text-slate-400">Add new students and assign them to specific academic tracks.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg font-medium text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+                                Export List
+                            </button>
+</div>
+</div>
+<!-- Add Student Form Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+<h3 class="font-bold text-slate-800 dark:text-slate-100">Add New Registration</h3>
+</div>
+<form class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Full Name</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary/20 h-11 px-4 text-sm" placeholder="Enter student's full name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Select Track (Class)</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary/20 h-11 px-4 text-sm appearance-none">
+<option disabled="" selected="" value="">Choose a class</option>
+<option value="paket">Paket</option>
+<option value="paket-a">Paket A</option>
+<option value="paket-b">Paket B</option>
+<option value="paket-c">Paket C</option>
+<option value="paket-calistung">Paket Calistung</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Student ID (Optional)</label>
+<div class="flex gap-2">
+<input class="flex-1 rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary/20 h-11 px-4 text-sm" placeholder="ID-2024-XXX" type="text"/>
+<button class="bg-primary hover:bg-primary/90 text-white rounded-lg px-6 font-bold text-sm h-11 flex items-center justify-center transition-all shadow-md shadow-primary/20 whitespace-nowrap" type="submit">
+                                            Register Student
+                                        </button>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- Students Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="px-6 py-4 flex items-center justify-between border-b border-slate-100 dark:border-slate-800">
+<h3 class="font-bold text-slate-800 dark:text-slate-100">Recent Registrations</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 font-medium">Showing 5 of 124 students</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Student Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Academic Track</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Date Enrolled</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden flex items-center justify-center">
+<span class="text-xs font-bold text-slate-500">AS</span>
+</div>
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-100">Aditya Saputra</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold">Paket C</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 12, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-bold">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden flex items-center justify-center">
+<span class="text-xs font-bold text-slate-500">BR</span>
+</div>
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-100">Budi Ramadhan</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold">Paket B</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 15, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-bold">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden flex items-center justify-center">
+<span class="text-xs font-bold text-slate-500">CI</span>
+</div>
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-100">Citra Indah</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold">Paket Calistung</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 18, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-slate-400">
+<span class="size-2 rounded-full bg-slate-400"></span>
+<span class="text-xs font-bold">Pending</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden flex items-center justify-center">
+<span class="text-xs font-bold text-slate-500">DW</span>
+</div>
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-100">Dwi Wahyuni</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 text-xs font-bold">Paket A</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 20, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-bold">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden flex items-center justify-center">
+<span class="text-xs font-bold text-slate-500">EK</span>
+</div>
+<span class="text-sm font-semibold text-slate-900 dark:text-slate-100">Eko Kurniawan</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold">Paket</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 22, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-bold">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-slate-50/30 dark:bg-slate-800/20 border-t border-slate-100 dark:border-slate-800 flex justify-center">
+<button class="text-sm font-bold text-primary hover:underline">View all student records</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Status Bar Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center">
+<div class="flex items-center gap-4 text-xs text-slate-500 font-medium">
+<span class="flex items-center gap-1"><span class="size-1.5 rounded-full bg-emerald-500"></span> System Online</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">update</span> Last updated: 2 mins ago</span>
+</div>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">© 2024 EduPortal Management System</p>
+</footer>
+</div>
+</body></html>
